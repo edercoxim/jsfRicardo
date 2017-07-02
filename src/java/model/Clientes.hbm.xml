@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/07/2017 17:57:35 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Clientes" table="clientes" catalog="posto" optimistic-lock="version">
+        <composite-id name="id" class="model.ClientesId">
+            <key-property name="id" type="int">
+                <column name="id" />
+            </key-property>
+            <key-property name="combustivelId" type="int">
+                <column name="combustivel_id" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="combustivel" class="model.Combustivel" update="false" insert="false" fetch="select">
+            <column name="combustivel_id" not-null="true" />
+        </many-to-one>
+        <property name="nome" type="string">
+            <column name="nome" length="45" />
+        </property>
+        <property name="cpf" type="string">
+            <column name="cpf" length="45" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="45" />
+        </property>
+        <property name="telefone" type="string">
+            <column name="telefone" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>
